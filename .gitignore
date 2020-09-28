@@ -1,4 +1,3 @@
 node_modules
 dev.js
 
-mongodb+srv://prod-flare-db:fmRikrZAJQjouYa4@production-flare-clothi.ycdre.mongodb.net/production-flare-clothing?retryWrites=true&w=majority
