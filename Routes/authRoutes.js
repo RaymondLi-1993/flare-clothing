@@ -11,21 +11,30 @@ module.exports = app => {
   app.get(
     `/auth/google/callback`,
     passport.authenticate(`google`),
-    (req, res) => {
+    async (req, res, next) => {
       try {
-        res.redirect(`/`);
+        backURL = req.header("Referer") || "/";
+        res.redirect(backURL);
       } catch (error) {
-        res.send(error);
+        next(error);
       }
     }
   );
 
-  app.get(`/api/logout`, (req, res) => {
-    req.logout();
-    res.redirect(`/`);
+  app.get(`/api/logout`, async (req, res, next) => {
+    try {
+      req.logout();
+      res.redirect(`back`);
+    } catch (error) {
+      next(error);
+    }
   });
 
-  app.get(`/api/currentUser`, (req, res) => {
-    res.send(req.user);
+  app.get(`/api/currentUser`, async (req, res, next) => {
+    try {
+      res.send(req.user);
+    } catch (error) {
+      next(error);
+    }
   });
 };

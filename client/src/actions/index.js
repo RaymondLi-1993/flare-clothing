@@ -4,6 +4,8 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   FETCH_USER,
+  CREATE_ORDER,
+  CLEAR_CART,
 } from "./types";
 
 export const fetchProducts = () => async dispatch => {
@@ -39,14 +41,21 @@ export const removeFromCart = id => (dispatch, getState) => {
   dispatch({ type: REMOVE_FROM_CART, payload: { cart } });
 };
 
+export const clearCart = data => (dispatch, getState) => {
+  let cart = getState().cart.cart;
+  cart = data;
+
+  dispatch({ type: CLEAR_CART, payload: { cart } });
+};
+
 export const fetchUser = () => async dispatch => {
   let response = await Axios.get(`/api/currentUser`);
 
   dispatch({ type: FETCH_USER, payload: response.data });
 };
 
-export const handleToken = token => async dispatch => {
-  let response = await Axios.post(`/api/stripe`, token);
+export const createOrder = order => async dispatch => {
+  let response = await Axios.post(`/api/orders`, order);
 
-  dispatch({ type: FETCH_USER, payload: response.data });
+  dispatch({ type: CREATE_ORDER, payload: response.data });
 };

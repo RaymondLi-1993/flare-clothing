@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-import Payments from "./payment";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUser } from "../actions/index";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const user = useSelector(state => state.user);
+  useEffect(() => {
+    try {
+      dispatch(fetchUser());
+    } catch (error) {
+      throw error;
+    }
+  }, [dispatch]);
 
   const renderButtons = () => {
     switch (user) {
@@ -14,34 +21,15 @@ const Header = () => {
       case false:
         return (
           <li>
-            <a
-              className="text-white w-2/12 h-16 mr-6 p-6 cursor-pointer transform hover:scale-125"
-              href="/auth/google"
-            >
-              Login with Google
-            </a>
+            <a href="/auth/google">Login with Google</a>
           </li>
         );
       default:
-        return [
-          <li key="1">
-            <Payments />
-          </li>,
-          <li
-            key="2"
-            className="text-white w-2/12 h-16 mr-6 p-6 cursor-pointer transform hover:scale-125"
-          >
-            credits: {user.credits}
-          </li>,
-          <li key="3">
-            <a
-              className="text-white w-2/12 h-16 mr-6 p-6 cursor-pointer transform hover:scale-125"
-              href="api/logout"
-            >
-              Log out
-            </a>
-          </li>,
-        ];
+        return (
+          <li>
+            <a href="api/logout">Log out</a>
+          </li>
+        );
     }
   };
 
@@ -51,7 +39,7 @@ const Header = () => {
         <div className="w-1/12 h-16 overflow-hidden">
           <Link to="/">
             <svg
-              className="w-full h-16 m-2 p-2 cursor-pointer"
+              className="w-full h-16 m-2 p-2 cursor-pointer animate-pulse"
               viewBox="-80 0 512 512.001"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -68,13 +56,9 @@ const Header = () => {
         </div>
         <div className="w-8/12 h-20 m-0 p-0">
           <ul className="flex justify-end items-center flex-row w-full">
-            {renderButtons()}
-            <Link
-              to="/menu"
-              className="text-white w-2/12 h-16 mr-6 p-6 cursor-pointer transform hover:scale-125"
-            >
-              Browse
-            </Link>
+            <div className="text-white h-16 mr-6 p-6 cursor-pointer transform hover:scale-125">
+              {renderButtons()}
+            </div>
             <Link
               to="/contact"
               className="text-white h-16 mr-6 p-6 cursor-pointer transform hover:scale-125"
