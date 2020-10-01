@@ -46,6 +46,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+
 const path = require("path");
 if (process.env.NODE_ENV === "production") {
   // Serve any static files

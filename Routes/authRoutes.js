@@ -37,8 +37,4 @@ module.exports = app => {
       next(error);
     }
   });
-
-  app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname + "/client/build/index.html"));
-  });
 };
