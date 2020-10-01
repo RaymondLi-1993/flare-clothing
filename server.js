@@ -33,9 +33,6 @@ require(`./Routes/orderRoute`)(app);
 app.use(async (req, res, next) => {
   const error = new Error(`Not Found`);
   error.status = 404;
-  app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname + "/client/build/index.html"));
-  });
   next(error);
 });
 
@@ -54,7 +51,7 @@ if (process.env.NODE_ENV === "production") {
   // Serve any static files
   app.use(express.static("client/build"));
   // Handle React routing, return all requests to React app
-  app.get("*", function (req, res) {
+  app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
