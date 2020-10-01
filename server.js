@@ -4,6 +4,7 @@ const cookieSession = require(`cookie-session`);
 const passport = require(`passport`);
 const bodyParser = require(`body-parser`);
 const keys = require("./config/keys");
+const apiErrorHandler = require("./middlewares/apiErrorHandler");
 require("./models/user");
 require("./models/order");
 require("./services/passport");
@@ -30,28 +31,14 @@ require(`./Routes/products`)(app);
 require(`./Routes/authRoutes`)(app);
 require(`./Routes/orderRoute`)(app);
 
-app.use(async (req, res, next) => {
-  const error = new Error(`Not Found`);
-  error.status = 404;
-  next(error);
-});
-
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.send({
-    error: {
-      status: err.status || 500,
-      message: err.message,
-    },
-  });
-});
+app.use(apiErrorHandler);
 
 const path = require("path");
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
   app.use(express.static("client/build"));
   // Handle React routing, return all requests to React app
-  app.get("/", function (req, res) {
+  app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }

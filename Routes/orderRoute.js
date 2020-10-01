@@ -1,4 +1,5 @@
 const mongoose = require(`mongoose`);
+const apiError = require(`../middlewares/error`);
 
 const Order = mongoose.model(`orders`);
 
@@ -7,7 +8,8 @@ module.exports = app => {
     try {
       const { address, name, email, cart, total } = req.body;
       if (!req.body) {
-        next(new Error(`Missing an imput field`));
+        next(apiError.badRequest(`Missing Input Field`));
+        return;
       }
       const order = await Order({
         email,
