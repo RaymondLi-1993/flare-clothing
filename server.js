@@ -33,6 +33,9 @@ require(`./Routes/orderRoute`)(app);
 app.use(async (req, res, next) => {
   const error = new Error(`Not Found`);
   error.status = 404;
+  app.get("/", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
   next(error);
 });
 
@@ -44,10 +47,6 @@ app.use((err, req, res, next) => {
       message: err.message,
     },
   });
-});
-
-app.get("/", (req, res) => {
-  res.status(200).sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 const path = require("path");
