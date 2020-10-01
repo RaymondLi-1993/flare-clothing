@@ -13,7 +13,7 @@ module.exports = app => {
     passport.authenticate(`google`),
     async (req, res) => {
       try {
-        redirect(`back`);
+        redirect(`/`);
       } catch (error) {
         throw error;
       }
