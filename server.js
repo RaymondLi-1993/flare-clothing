@@ -4,10 +4,10 @@ const cookieSession = require(`cookie-session`);
 const passport = require(`passport`);
 const bodyParser = require(`body-parser`);
 const keys = require("./config/keys");
+const apiErrorHandler = require("./middlewares/apiErrorHandler");
 require("./models/user");
 require("./models/order");
 require("./services/passport");
-const apiErrorHandler = require("./middlewares/apiErrorHandler");
 
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
