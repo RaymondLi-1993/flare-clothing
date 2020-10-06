@@ -4,8 +4,11 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   FETCH_USER,
-  CREATE_ORDER,
+  CREATE_SHIPPING,
   CLEAR_CART,
+  ORDER,
+  CLEAR_ORDER,
+  CLEAR_SHIPPING,
 } from "./types";
 
 export const fetchProducts = () => async dispatch => {
@@ -15,8 +18,9 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const addToCart = item => (dispatch, getState) => {
-  const cart = getState().cart.cart.slice();
+  const cart = getState().cart.cart;
   let alreadyExist = false;
+  let total = 0;
 
   cart.forEach(elem => {
     if (elem.id === item.id) {
@@ -28,24 +32,29 @@ export const addToCart = item => (dispatch, getState) => {
   if (!alreadyExist) {
     cart.push({ ...item, count: 1 });
   }
-  dispatch({ type: ADD_TO_CART, payload: { cart } });
+
+  cart.forEach(elem => {
+    total += elem.count * elem.price;
+  });
+
+  dispatch({ type: ADD_TO_CART, payload: { cart }, total: total });
 };
 
 export const removeFromCart = id => (dispatch, getState) => {
-  const cart = getState()
-    .cart.cart.slice()
-    .filter(item => {
-      return parseInt(id) !== item.id;
-    });
+  let total = 0;
+  const cart = getState().cart.cart.filter(item => {
+    return parseInt(id) !== item.id;
+  });
 
-  dispatch({ type: REMOVE_FROM_CART, payload: { cart } });
+  cart.forEach(elem => {
+    total += elem.count * elem.price;
+  });
+
+  dispatch({ type: REMOVE_FROM_CART, payload: { cart }, total: total });
 };
 
-export const clearCart = data => (dispatch, getState) => {
-  let cart = getState().cart.cart;
-  cart = data;
-
-  dispatch({ type: CLEAR_CART, payload: { cart } });
+export const clearCart = () => dispatch => {
+  dispatch({ type: CLEAR_CART });
 };
 
 export const fetchUser = () => async dispatch => {
@@ -54,8 +63,22 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: response.data });
 };
 
-export const createOrder = order => async dispatch => {
-  let response = await Axios.post(`/api/orders`, order);
+export const createOrder = data => dispatch => {
+  const order = data;
 
-  dispatch({ type: CREATE_ORDER, payload: response.data });
+  dispatch({ type: CREATE_SHIPPING, payload: order });
+};
+
+export const order = data => async dispatch => {
+  let response = await Axios.post(`/api/orders`, data);
+
+  dispatch({ type: ORDER, payload: response.data });
+};
+
+export const clearOrder = () => dispatch => {
+  dispatch({ type: CLEAR_ORDER });
+};
+
+export const clearShipping = () => dispatch => {
+  dispatch({ type: CLEAR_SHIPPING });
 };

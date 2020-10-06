@@ -6,24 +6,11 @@ import { fetchUser } from "../actions/index";
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  useEffect(() => {
-    try {
-      dispatch(fetchUser());
-    } catch (error) {
-      throw error;
-    }
-  }, [dispatch]);
-
-  const renderButtons = () => {
+  const renderButton = () => {
     switch (user) {
       case null:
         return;
       case false:
-        return (
-          <li>
-            <a href="/auth/google">Login with Google</a>
-          </li>
-        );
       default:
         return (
           <li>
@@ -57,7 +44,7 @@ const Header = () => {
         <div className="w-8/12 h-20 m-0 p-0">
           <ul className="flex justify-end items-center flex-row w-full">
             <div className="text-white h-16 mr-6 p-6 cursor-pointer transform hover:scale-125">
-              {renderButtons()}
+              {renderButton()}
             </div>
             <Link
               to="/contact"

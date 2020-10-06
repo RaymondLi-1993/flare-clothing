@@ -1,15 +1,13 @@
 const mongoose = require("mongoose");
-const shortId = require("shortid");
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-  _id: {
-    type: String,
-    default: shortId.generate(),
-  },
-  Email: String,
-  Name: String,
-  Address: String,
+  _id: String,
+  email: String,
+  name: String,
+  address: String,
+  state: String,
+  zip: Number,
   total: Number,
   cart: Array,
   _user: { type: Schema.Types.ObjectId, ref: `User` },

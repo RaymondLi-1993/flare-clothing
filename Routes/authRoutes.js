@@ -13,8 +13,7 @@ module.exports = app => {
     passport.authenticate(`google`),
     async (req, res, next) => {
       try {
-        const backURL = req.header("Referer") || "/";
-        await res.redirect(backURL);
+        res.redirect(`/shipping`);
       } catch (error) {
         next(error);
       }
@@ -24,7 +23,7 @@ module.exports = app => {
   app.get(`/api/logout`, async (req, res, next) => {
     try {
       req.logout();
-      res.redirect(`back`);
+      res.redirect(`/`);
     } catch (error) {
       next(error);
     }

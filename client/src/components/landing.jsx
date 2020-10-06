@@ -9,6 +9,8 @@ const Landing = () => {
   const state = useSelector(state => state.products);
   const getWidth = () => window.innerWidth;
 
+  console.log(store);
+
   useEffect(() => {
     try {
       dispatch(fetchProducts());
