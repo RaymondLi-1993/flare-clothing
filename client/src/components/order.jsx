@@ -102,8 +102,9 @@ const Order = () => {
               </button>
             </div>
           </div>
-          <div className=" lg:block lg:w-1/2 bg-cover">
-            <div className="container  mt-12 flex flex-col w-9/12 h-full">
+          <div className="hidden lg:block lg:w-1/2 bg-cover">
+            <div className="container mt-2 ml-12 flex flex-col justify-items-end w-9/12 h-full">
+              <h1 className="font-bold">Total-${total} USD</h1>
               {cart.map(item => {
                 return <Items key={item.id} otherProps={{ ...item }} />;
               })}

@@ -9,6 +9,15 @@ const Cart = () => {
   const user = useSelector(state => state.user);
   const total = useSelector(state => state.cart.total);
 
+  if (cart.length === 0) {
+    return (
+      <div className="w-full h-screen">
+        <div className="flex items-center justify-center w-full h-full">
+          <h1 className="text-6xl font-bold">Cart is empty!</h1>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="w-screen h-screen flex justify-center">
