@@ -5,20 +5,25 @@ import { useSelector, useDispatch } from "react-redux";
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
+  const totalCount = useSelector(state => state.cart.totalCount);
   const [open, setOpen] = useState(false);
-  const renderButton = () => {
-    switch (user) {
-      case null:
-        return;
-      case false:
-      default:
-        return (
-          <li>
-            <a href="api/logout">Log out</a>
-          </li>
-        );
-    }
-  };
+
+  // const renderButton = () => {
+  //   switch (user) {
+  //     case null:
+  //       return;
+  //     case false:
+  //       return;
+  //     default:
+  //       return (
+  //         <li>
+  //           <a href="api/logout">Log out</a>
+  //         </li>
+  //       );
+  //   }
+  // };
+
+  console.log(totalCount);
 
   return (
     <>
@@ -73,20 +78,14 @@ const Header = () => {
               <Link
                 to="/menu"
                 className="my-1 text-xl text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0"
-                href="#"
               >
-                Shop
+                Browse
               </Link>
 
-              <Link
-                to="/contact"
-                className="my-1 text-xl text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0"
-              >
-                About
-              </Link>
+              <ul className="my-1 text-xl text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0"></ul>
             </div>
 
-            <div className="flex justify-center md:block">
+            <div className="flex justify-center md:block relative">
               <Link
                 to="/cart"
                 className="relative text-gray-700 hover:text-gray-600"
@@ -123,6 +122,15 @@ const Header = () => {
                   />
                   <path fill="#da4453" d="M348.5 120h29.999v392H348.5z" />
                 </svg>
+                <span
+                  className={
+                    totalCount === 0
+                      ? `hidden`
+                      : "text-white absolute top-1/2 ml-8 md:ml-8 md:mt-8 text-xl"
+                  }
+                >
+                  {totalCount}
+                </span>
               </Link>
             </div>
           </div>
@@ -135,3 +143,4 @@ export default Header;
 
 //Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 // Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+//Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

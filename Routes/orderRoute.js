@@ -29,19 +29,35 @@ module.exports = app => {
           next(apiError.badRequest(`Missing Input Field`));
           return;
         }
-        const order = await Order({
-          _id: shortId.generate(),
-          email,
-          name,
-          address,
-          state,
-          zip,
-          total,
-          cart,
-          _user: req.user.id,
-          date: Date.now(),
-        }).save();
-        res.send(order);
+        if (req.user === undefined) {
+          const order = await Order({
+            _id: shortId.generate(),
+            email,
+            name,
+            address,
+            state,
+            zip,
+            total,
+            cart,
+            _user: `demo`,
+            date: Date.now(),
+          }).save();
+          res.send(order);
+        } else {
+          const order = await Order({
+            _id: shortId.generate(),
+            email,
+            name,
+            address,
+            state,
+            zip,
+            total,
+            cart,
+            _user: req.user.id,
+            date: Date.now(),
+          }).save();
+          res.send(order);
+        }
       }
     } catch (error) {
       next(apiError.internal(error));

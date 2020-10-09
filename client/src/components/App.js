@@ -5,7 +5,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import History from "../history";
 
 import Landing from "./landing";
-import Contact from "./contact";
 import Menu from "./menu";
 import Header from "./header";
 import categories from "./categories";
@@ -26,7 +25,6 @@ function App() {
           <Switch>
             <Elements stripe={stripePromise}>
               <Route path="/" exact component={Landing} />
-              <Route path="/contact" exact component={Contact} />
               <Route path="/menu" exact component={Menu} />
               <Route path="/cart" exact component={Cart} />
               <Route path="/category/:routeName" exact component={categories} />

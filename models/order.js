@@ -10,7 +10,7 @@ const orderSchema = new Schema({
   zip: Number,
   total: Number,
   cart: Array,
-  _user: { type: Schema.Types.ObjectId, ref: `User` },
+  _user: { type: String } || { type: Schema.Types.ObjectId, ref: `User` },
   date: Date,
 });
 

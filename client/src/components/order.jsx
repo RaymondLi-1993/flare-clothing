@@ -101,6 +101,9 @@ const Order = () => {
                 Submit
               </button>
             </div>
+            <h1 className="mt-12 text-l text-red-600">
+              *Use credit card number 4242424242424242 10/22 and any CVC/ZIP*
+            </h1>
           </div>
           <div className="hidden lg:block lg:w-1/2 bg-cover">
             <div className="container mt-2 ml-12 flex flex-col justify-items-end w-9/12 h-full">
@@ -172,3 +175,7 @@ const Order = () => {
 };
 
 export default Order;
+
+// <div class="fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center">
+//    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+// </div>

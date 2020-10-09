@@ -1,4 +1,5 @@
 import React from "react";
+import History from "../history";
 
 const Login = () => {
   return (
@@ -47,8 +48,11 @@ const Login = () => {
           <div className="mt-4 flex items-center justify-between"></div>
 
           <div className="mt-8">
-            <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">
-              Facebook
+            <button
+              onClick={() => History.push(`/shipping`)}
+              className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
+            >
+              Demo Login
             </button>
           </div>
           <div className="mt-4 flex items-center justify-between"></div>
