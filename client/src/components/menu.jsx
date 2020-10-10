@@ -6,7 +6,7 @@ const Menu = () => {
   const state = useSelector(state => state.products);
 
   return (
-    <div className="my-8 w-full h-screen ">
+    <div className="my-8 w-full h-full">
       <div className="my-8 w-full">
         <div className="container w-9/12 mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
@@ -26,8 +26,6 @@ const Menu = () => {
               );
             })}
           </div>
-        </div>
-        <div className="container w-9/12 mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
             {state.products[1].title}
           </h1>
@@ -45,8 +43,6 @@ const Menu = () => {
               );
             })}
           </div>
-        </div>
-        <div className="container w-9/12 mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
             {state.products[2].title}
           </h1>
@@ -64,8 +60,6 @@ const Menu = () => {
               );
             })}
           </div>
-        </div>
-        <div className="container w-9/12 mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
             {state.products[3].title}
           </h1>
@@ -83,8 +77,6 @@ const Menu = () => {
               );
             })}
           </div>
-        </div>
-        <div className="container w-9/12 mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
             {state.products[4].title}
           </h1>

@@ -61,7 +61,7 @@ const Order = () => {
 
   return (
     <div>
-      <div className="py-6">
+      <div className="py-6 w-full mb-12">
         <div className="flex bg-gray-300 overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
           <div className="w-full p-8 lg:w-1/2">
             <div className=" bg-gray-200 rounded-lg shadow-2xl overflow-hidden mx-auto max-w-sm lg:max-w-4xl">

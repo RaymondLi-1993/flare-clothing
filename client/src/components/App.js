@@ -12,13 +12,14 @@ import Cart from "./cart";
 import Login from "./login";
 import Shipping from "./shipping";
 import Order from "./order";
+import Footer from "./footer";
 
 const stripePromise = loadStripe(`	
 pk_test_51HNYGwFQiplwqa4K80yFUkEga74jEkxE5CwcNUghhjdbs4ObVnmUxIYI1XToVnJQTcHuqVUwykYf3SiVDuM2orll00w0KGHJXt`);
 
 function App() {
   return (
-    <div className="w-screen h-screen m-0 p-0">
+    <div className="w-screen min-h-screen m-0 p-0 font-mono">
       <Router history={History}>
         <div>
           <Header />
@@ -33,6 +34,7 @@ function App() {
               <Route path="/order" exact component={Order} />
             </Elements>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </div>

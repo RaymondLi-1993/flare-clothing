@@ -20,18 +20,25 @@ const Landing = () => {
 
   if (state) {
     return (
-      <div className="w-full h-screen">
-        <div className=" border-solid border-black border-8 w-full h-xxxl m-0 p-0 flex items-center overflow-hidden relative ">
+      <div className="w-full h-full">
+        <div className="w-full h-12 bg-black flex flex-row items-center">
+          <div className="w-1/5 text-red-300 text-center">HATS</div>
+          <div className="w-1/5 text-red-400 text-center">SNEAKERS</div>
+          <div className="w-1/5 text-red-500 text-center">JACKETS</div>
+          <div className="w-1/5 text-red-600 text-center">WOMEN</div>
+          <div className="w-1/5 text-red-700 text-center">MEN</div>
+        </div>
+        <div className="w-full h-xxxl m-0 p-0 flex items-center overflow-hidden relative ">
           <div
             className="h-full flex flex-col md:flex-row transform ease-out"
             style={{ width: `${getWidth() * state.products.length}px` }}
           >
             {state.products.map(items => {
+              console.log(items);
               return (
                 <Slide
                   key={items.id}
                   content={items.imageUrl}
-                  title={items.title}
                   routeName={items.routeName}
                 />
               );

@@ -40,14 +40,18 @@ const Card = ({ name, price, image, id, menu }) => {
         className={
           menu
             ? "w-full h-12 relative flex items-center justify-center m-auto"
-            : "w-full h-24 flex items-center justify-center m-auto"
+            : "w-full h-24  relative flex items-center justify-center m-auto"
         }
       >
         <div
-          className={menu ? "text-white w-6/12 text-xs" : "text-white w-6/12"}
+          className={
+            menu
+              ? "text-white w-9/12 text-sm italic font-bold"
+              : "text-white w-9/12 italic font-bold"
+          }
         >
           {name}
-          <div className="text-white self-center">{`$${price}`}</div>
+          <div className="text-white self-center not-italic">{`$${price}`}</div>
           <button
             id={id}
             onClick={event => {
@@ -55,14 +59,18 @@ const Card = ({ name, price, image, id, menu }) => {
             }}
             className={
               menu
-                ? "absolute top-0 right-0 mr-4 mt-2 bg-green-700 p-2 rounded-full text-white mx-5 hover:bg-green-600 focus:outline-none focus:bg-green-600"
-                : "hidden"
+                ? "absolute top-0 right-0 mr-6 mt-2 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
+                : "absolute top-0 right-0 mr-8 mt-6 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
             }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              className="h-5 w-5 pointer-events-none cursor-pointer"
+              className={
+                menu
+                  ? "h-5 w-5 pointer-events-none cursor-pointer"
+                  : "h-10 w-10 pointer-events-none cursor-pointer"
+              }
             >
               <path
                 d="M461 512h-90.004a7.5 7.5 0 01-7.5-7.5V127.504a7.5 7.5 0 017.5-7.5H461a7.5 7.5 0 017.5 7.5V504.5a7.5 7.5 0 01-7.5 7.5z"
@@ -90,19 +98,6 @@ const Card = ({ name, price, image, id, menu }) => {
               />
               <path fill="#da4453" d="M348.5 120h29.999v392H348.5z" />
             </svg>
-          </button>
-          <button
-            className={
-              menu
-                ? "hidden"
-                : "w-full bg-yellow-500 text-black font-bold py-1 px-1  rounded hover:bg-yellow-700"
-            }
-            id={id}
-            onClick={event => {
-              handleClick(event.target.id);
-            }}
-          >
-            Add to cart
           </button>
         </div>
       </div>

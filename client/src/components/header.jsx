@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchUser } from "../actions/index";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -8,22 +9,24 @@ const Header = () => {
   const totalCount = useSelector(state => state.cart.totalCount);
   const [open, setOpen] = useState(false);
 
-  // const renderButton = () => {
-  //   switch (user) {
-  //     case null:
-  //       return;
-  //     case false:
-  //       return;
-  //     default:
-  //       return (
-  //         <li>
-  //           <a href="api/logout">Log out</a>
-  //         </li>
-  //       );
-  //   }
-  // };
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
 
-  console.log(totalCount);
+  const renderButton = () => {
+    switch (user) {
+      case null:
+        return;
+      case false:
+        return;
+      default:
+        return (
+          <li>
+            <a href="api/logout">Log out</a>
+          </li>
+        );
+    }
+  };
 
   return (
     <>
@@ -31,26 +34,25 @@ const Header = () => {
         <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
           <div className="flex justify-between items-center">
             <div>
-              <Link
-                to="/"
-                className="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700"
-                href="#"
+              <svg
+                className=" h-16 p-2"
+                viewBox="-80 0 512 512.001"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className=" h-16 p-2 cursor-pointer "
-                  viewBox="-80 0 512 512.001"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M284.906 132.957a15.006 15.006 0 00-16.867-6.691 15.005 15.005 0 00-10.973 14.449c0 18.308-14.894 33.2-33.199 33.2-18.304 0-33.199-14.892-33.199-33.2V15a14.997 14.997 0 00-9.262-13.855 14.984 14.984 0 00-16.343 3.25c-1.688 1.683-41.684 41.918-82.208 102.703-23.898 35.843-42.968 71.398-56.68 105.675C8.81 256.2 0 297.77 0 336.336 0 433.196 78.805 512 175.668 512c96.86 0 175.664-78.805 175.664-175.664.004-62.004-22.348-130.43-66.426-203.379zm0 0"
-                    fill="#ff9f00"
-                  />
-                  <path
-                    d="M284.906 132.957a15.006 15.006 0 00-16.867-6.691 15.005 15.005 0 00-10.973 14.449c0 18.308-14.894 33.2-33.199 33.2-18.304 0-33.199-14.892-33.199-33.2V15a14.997 14.997 0 00-9.262-13.855 14.883 14.883 0 00-5.738-1.137V512c96.863 0 175.668-78.805 175.668-175.668 0-62-22.352-130.426-66.43-203.375zm0 0"
-                    fill="#ff641a"
-                  />
-                </svg>
-              </Link>
+                <path
+                  d="M284.906 132.957a15.006 15.006 0 00-16.867-6.691 15.005 15.005 0 00-10.973 14.449c0 18.308-14.894 33.2-33.199 33.2-18.304 0-33.199-14.892-33.199-33.2V15a14.997 14.997 0 00-9.262-13.855 14.984 14.984 0 00-16.343 3.25c-1.688 1.683-41.684 41.918-82.208 102.703-23.898 35.843-42.968 71.398-56.68 105.675C8.81 256.2 0 297.77 0 336.336 0 433.196 78.805 512 175.668 512c96.86 0 175.664-78.805 175.664-175.664.004-62.004-22.348-130.43-66.426-203.379zm0 0"
+                  fill="#ff9f00"
+                />
+                <path
+                  d="M284.906 132.957a15.006 15.006 0 00-16.867-6.691 15.005 15.005 0 00-10.973 14.449c0 18.308-14.894 33.2-33.199 33.2-18.304 0-33.199-14.892-33.199-33.2V15a14.997 14.997 0 00-9.262-13.855 14.883 14.883 0 00-5.738-1.137V512c96.863 0 175.668-78.805 175.668-175.668 0-62-22.352-130.426-66.43-203.375zm0 0"
+                  fill="#ff641a"
+                />
+              </svg>
+            </div>
+            <div className=" m-2">
+              <h1 className="text-red-500 text-xl underline italic">
+                Flare-Clothing
+              </h1>
             </div>
 
             <div className="flex md:hidden">
@@ -61,7 +63,7 @@ const Header = () => {
               >
                 <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
                   <path
-                    fill-rule="evenodd"
+                    fill="evenodd"
                     d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
                   ></path>
                 </svg>
@@ -76,13 +78,21 @@ const Header = () => {
           >
             <div className="flex flex-col md:flex-row md:mx-6">
               <Link
+                to="/"
+                className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Home
+              </Link>
+              <Link
                 to="/menu"
-                className="my-1 text-xl text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0"
+                className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
               >
                 Browse
               </Link>
 
-              <ul className="my-1 text-xl text-white font-medium hover:text-indigo-500 md:mx-4 md:my-0"></ul>
+              <ul className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0">
+                {renderButton()}
+              </ul>
             </div>
 
             <div className="flex justify-center md:block relative">
@@ -140,7 +150,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-//Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-// Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
-//Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

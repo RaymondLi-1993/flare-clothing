@@ -14,9 +14,11 @@ const Hats = ({ match }) => {
 
   return (
     <>
-      <h1>{routeName}</h1>
       <div className="my-8 w-full">
         <div className="container w-9/12 mx-auto px-6">
+          <h1 className="font-bold text-2xl capitalize border-b-8">
+            {routeName}
+          </h1>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 mt-6">
             {items.map(item => {
               return (
