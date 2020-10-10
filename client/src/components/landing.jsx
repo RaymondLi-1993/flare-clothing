@@ -21,7 +21,7 @@ const Landing = () => {
   if (state) {
     return (
       <div className="w-full h-full">
-        <div className="w-full h-12 bg-black flex flex-row items-center">
+        <div className="w-full h-12 bg-black hidden md:flex md:flex-row items-center ">
           <div className="w-1/5 text-red-300 text-center">HATS</div>
           <div className="w-1/5 text-red-400 text-center">SNEAKERS</div>
           <div className="w-1/5 text-red-500 text-center">JACKETS</div>
