@@ -46,7 +46,7 @@ const Card = ({ name, price, image, id, menu }) => {
         <div
           className={
             menu
-              ? "text-white w-9/12 text-sm italic font-bold"
+              ? "text-white sm:6/12 w-9/12 md:text-sm text-xs italic font-bold"
               : "text-white w-9/12 italic font-bold"
           }
         >
@@ -68,7 +68,7 @@ const Card = ({ name, price, image, id, menu }) => {
               viewBox="0 0 512 512"
               className={
                 menu
-                  ? "h-5 w-5 pointer-events-none cursor-pointer"
+                  ? "md:h-5 md:w-5 h-3 w-3 pointer-events-none cursor-pointer"
                   : "h-10 w-10 pointer-events-none cursor-pointer"
               }
             >

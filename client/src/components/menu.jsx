@@ -8,7 +8,7 @@ const Menu = () => {
   return (
     <div className="my-8 w-full h-full">
       <div className="my-8 w-full">
-        <div className="container w-9/12 mx-auto px-6">
+        <div className="container md:w-9/12 sm:w-3/12 w-7/12  mx-auto px-6">
           <h1 className="font-bold text-2xl mt-6 border-b-8">
             {state.products[0].title}
           </h1>
