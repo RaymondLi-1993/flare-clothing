@@ -9,6 +9,8 @@ const Landing = () => {
   const state = useSelector(state => state.products);
   const getWidth = () => window.innerWidth;
 
+  console.log(state);
+
   useEffect(() => {
     try {
       dispatch(fetchProducts());
@@ -34,7 +36,6 @@ const Landing = () => {
             style={{ width: `${getWidth() * state.products.length}px` }}
           >
             {state.products.map(items => {
-              console.log(items);
               return (
                 <Slide
                   key={items.id}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/index";
+import History from "../history";
 
 const Card = ({ name, price, image, id, menu }) => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Card = ({ name, price, image, id, menu }) => {
       }
     })[0];
     dispatch(addToCart(item));
+    History.push(`/cart`);
   };
   return (
     <div

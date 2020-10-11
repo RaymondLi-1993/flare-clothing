@@ -31,6 +31,12 @@ const Cart = () => {
             </div>
             <div>
               <button
+                onClick={() => History.push(`/menu`)}
+                className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded mr-2"
+              >
+                Continue Shopping
+              </button>
+              <button
                 onClick={
                   user
                     ? () => History.push(`/shipping`)

@@ -33,7 +33,7 @@ const Header = () => {
       <nav className="bg-black">
         <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
           <div className="flex justify-between items-center">
-            <div>
+            <Link to="/" className="flex">
               <svg
                 className=" h-16 p-2"
                 viewBox="-80 0 512 512.001"
@@ -48,12 +48,12 @@ const Header = () => {
                   fill="#ff641a"
                 />
               </svg>
-            </div>
-            <div className=" m-2">
-              <h1 className="text-red-500 text-xl underline italic">
-                Flare-Clothing
-              </h1>
-            </div>
+              <div className="self-center">
+                <h1 className="text-red-500 text-lg underline italic">
+                  Flare-Clothing
+                </h1>
+              </div>
+            </Link>
 
             <div className="flex md:hidden">
               <button
@@ -78,19 +78,42 @@ const Header = () => {
           >
             <div className="flex flex-col md:flex-row md:mx-6">
               <Link
-                to="/"
-                className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
-              >
-                Home
-              </Link>
-              <Link
                 to="/menu"
-                className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
               >
                 Browse
               </Link>
-
-              <ul className="my-1 text-xl text-white font-medium hover:text-red-500 md:mx-4 md:my-0">
+              <Link
+                to="/category/hats"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Hats
+              </Link>
+              <Link
+                to="/category/sneakers"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Sneakers
+              </Link>
+              <Link
+                to="/category/jackets"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Jackets
+              </Link>
+              <Link
+                to="/category/womens"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Women
+              </Link>
+              <Link
+                to="/category/mens"
+                className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0"
+              >
+                Men
+              </Link>
+              <ul className="my-1 text-lg text-white font-medium hover:text-red-500 md:mx-4 md:my-0">
                 {renderButton()}
               </ul>
             </div>
