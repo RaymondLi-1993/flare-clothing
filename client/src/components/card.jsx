@@ -24,8 +24,8 @@ const Card = ({ name, price, image, id, menu }) => {
     <div
       className={
         menu
-          ? "bg-black shadow-lg rounded-lg overflow-hidden m-auto w-full h-64"
-          : "bg-black shadow-lg rounded-lg overflow-hidden m-auto w-full h-xl"
+          ? "bg-black shadow-lg rounded-lg overflow-hidden m-auto w-full h-64 md:h-l"
+          : "bg-black shadow-lg rounded-lg overflow-hidden m-auto w-full h-l md:h-xl"
       }
     >
       <div
@@ -39,15 +39,15 @@ const Card = ({ name, price, image, id, menu }) => {
       <div
         className={
           menu
-            ? "w-full h-12 relative flex items-center justify-center m-auto"
+            ? " w-full h-12 relative flex items-center justify-center m-auto"
             : "w-full h-24  relative flex items-center justify-center m-auto"
         }
       >
         <div
           className={
             menu
-              ? "text-white sm:6/12 w-9/12 md:text-sm text-xs italic font-bold"
-              : "text-white w-9/12 italic font-bold"
+              ? "text-white text-xs w-6/12 mr-8 md:w-10/12 md:text-sm md:mr-0 lg:text-sm lg:w-6/12 lg:mr-6 lg:mt-6 italic font-bold"
+              : "text-white w-6/12 text-xs mr-8 mb-4 sm:text-sm sm:ml-4 md:mr-16 md:w-6/12 md:text-sm lg:text-base lg:ml-6  italic font-bold"
           }
         >
           {name}
@@ -59,8 +59,8 @@ const Card = ({ name, price, image, id, menu }) => {
             }}
             className={
               menu
-                ? "absolute top-0 right-0 mr-6 mt-2 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
-                : "absolute top-0 right-0 mr-8 mt-6 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
+                ? "absolute top-0 right-0 mr-3 mt-2 sm:mr-6 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
+                : "absolute top-0 right-0 ml-6 mt-3  md:mr-6 md:mt-6 bg-orange-400 p-2 rounded-full text-white mx-5 hover:bg-orange-500 focus:outline-none focus:bg-orange-500"
             }
           >
             <svg
@@ -68,8 +68,8 @@ const Card = ({ name, price, image, id, menu }) => {
               viewBox="0 0 512 512"
               className={
                 menu
-                  ? "md:h-5 md:w-5 h-3 w-3 pointer-events-none cursor-pointer"
-                  : "h-10 w-10 pointer-events-none cursor-pointer"
+                  ? "md:h-5 md:w-5 h-3 w-3 lg:h-8 lg:w-8 pointer-events-none cursor-pointer"
+                  : "h-8 w-8  md:h-8 md:w-8  pointer-events-none cursor-pointer"
               }
             >
               <path

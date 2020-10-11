@@ -81,19 +81,19 @@ module.exports = SHOP_DATA = [
       },
       {
         id: 12,
-        name: "Nike White AirForce",
+        name: "White AirForce",
         imageUrl: "/images/blackSwoosh.jpg",
         price: 160,
       },
       {
         id: 13,
-        name: "Nike Red High Tops",
+        name: "Red High Tops",
         imageUrl: "https://i.ibb.co/QcvzydB/nikes-red.png",
         price: 160,
       },
       {
         id: 14,
-        name: "Nike Brown High Tops",
+        name: "Brown High Tops",
         imageUrl: "/images/brown&Black.jpg",
         price: 160,
       },

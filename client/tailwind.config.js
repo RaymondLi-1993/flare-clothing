@@ -12,6 +12,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: [`Roboto`],
+      },
       height: {
         l: `22rem`,
         xl: `28rem`,
