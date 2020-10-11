@@ -49,7 +49,7 @@ const Header = () => {
                 />
               </svg>
               <div className="self-center">
-                <h1 className="text-red-500 text-lg underline italic">
+                <h1 className="text-red-500 text-2xl font-bold underline italic">
                   Flare-Clothing
                 </h1>
               </div>

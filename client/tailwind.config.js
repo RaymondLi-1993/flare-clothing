@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: [`Roboto`],
+        Nunito: [`Nunito`],
       },
       height: {
         l: `22rem`,

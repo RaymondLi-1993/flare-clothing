@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -10199,8 +10199,8 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-roboto{
-  font-family: Roboto;
+.font-Nunito{
+  font-family: Nunito;
 }
 
 .font-hairline{
@@ -31838,8 +31838,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .sm\:font-roboto{
-    font-family: Roboto;
+  .sm\:font-Nunito{
+    font-family: Nunito;
   }
 
   .sm\:font-hairline{
@@ -53412,8 +53412,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .md\:font-roboto{
-    font-family: Roboto;
+  .md\:font-Nunito{
+    font-family: Nunito;
   }
 
   .md\:font-hairline{
@@ -74986,8 +74986,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .lg\:font-roboto{
-    font-family: Roboto;
+  .lg\:font-Nunito{
+    font-family: Nunito;
   }
 
   .lg\:font-hairline{
@@ -96560,8 +96560,8 @@ video {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
-  .xl\:font-roboto{
-    font-family: Roboto;
+  .xl\:font-Nunito{
+    font-family: Nunito;
   }
 
   .xl\:font-hairline{
