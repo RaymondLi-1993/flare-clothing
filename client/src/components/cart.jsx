@@ -20,7 +20,7 @@ const Cart = () => {
   }
   return (
     <>
-      <div className="w-screen h-screen flex justify-center">
+      <div className="w-screen h-screen flex justify-center ">
         <div className="container  mt-12 flex flex-col w-9/12 h-full">
           {cart.map(item => {
             return <Items key={item.id} otherProps={{ ...item }} />;

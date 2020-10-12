@@ -30,6 +30,7 @@ app.use(passport.session());
 require(`./Routes/products`)(app);
 require(`./Routes/authRoutes`)(app);
 require(`./Routes/orderRoute`)(app);
+require(`./Routes/demoRoute`)(app);
 
 app.use(apiErrorHandler);
 
