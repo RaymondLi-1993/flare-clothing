@@ -19,9 +19,9 @@ pk_test_51HNYGwFQiplwqa4K80yFUkEga74jEkxE5CwcNUghhjdbs4ObVnmUxIYI1XToVnJQTcHuqVU
 
 function App() {
   return (
-    <div className="w-screen min-h-screen m-0 p-0 font-Nunito">
+    <div className="w-full h-screen m-0 p-0">
       <Router history={History}>
-        <div>
+        <div className="w-full">
           <Header />
           <Switch>
             <Elements stripe={stripePromise}>

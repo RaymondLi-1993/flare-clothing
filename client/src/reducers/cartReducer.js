@@ -1,4 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from "../actions/types";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  CLEAR_CART,
+  REMOVE_QUANTITY,
+} from "../actions/types";
 
 const INITIAL_STATE = {
   totalCount: 0,
@@ -22,8 +27,18 @@ export default (state = INITIAL_STATE, action) => {
         cart: action.payload.cart,
         totalCount: action.totalCount,
       };
+
+    case REMOVE_QUANTITY:
+      return {
+        ...state,
+        totalCount: action.totalCount,
+        total: action.total,
+        cart: action.payload.cart,
+      };
+
     case CLEAR_CART:
       return { ...state, totalCount: 0, total: 0, cart: [] };
+
     default:
       return state;
   }

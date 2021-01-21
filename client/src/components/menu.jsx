@@ -4,16 +4,14 @@ import Card from "./card";
 
 const Menu = () => {
   const state = useSelector(state => state.products);
+  const products = [...state.products];
 
   return (
-    <div className="my-8 w-full h-full">
-      <div className="my-8 w-full">
-        <div className="container md:w-9/12 w-6/12  mx-auto px-6">
-          <h1 className="font-bold text-2xl mt-6 border-b-8">
-            {state.products[0].title}
-          </h1>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            {state.products[0].items.map(item => {
+    <div className="my-8 w-full">
+      <div className="container m-auto px-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+          {products.map(elem => {
+            return elem.items.map(item => {
               return (
                 <Card
                   key={item.id}
@@ -21,79 +19,10 @@ const Menu = () => {
                   image={item.imageUrl}
                   name={item.name}
                   price={item.price}
-                  menu={true}
                 />
               );
-            })}
-          </div>
-          <h1 className="font-bold text-2xl mt-6 border-b-8">
-            {state.products[1].title}
-          </h1>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            {state.products[1].items.map(item => {
-              return (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  image={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  menu={true}
-                />
-              );
-            })}
-          </div>
-          <h1 className="font-bold text-2xl mt-6 border-b-8">
-            {state.products[2].title}
-          </h1>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            {state.products[2].items.map(item => {
-              return (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  image={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  menu={true}
-                />
-              );
-            })}
-          </div>
-          <h1 className="font-bold text-2xl mt-6 border-b-8">
-            {state.products[3].title}
-          </h1>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            {state.products[3].items.map(item => {
-              return (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  image={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  menu={true}
-                />
-              );
-            })}
-          </div>
-          <h1 className="font-bold text-2xl mt-6 border-b-8">
-            {state.products[4].title}
-          </h1>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-            {state.products[4].items.map(item => {
-              return (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  image={item.imageUrl}
-                  name={item.name}
-                  price={item.price}
-                  menu={true}
-                />
-              );
-            })}
-          </div>
+            });
+          })}
         </div>
       </div>
     </div>

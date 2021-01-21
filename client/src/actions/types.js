@@ -8,3 +8,4 @@ export const CLEAR_SHIPPING = "clear_shipping;";
 export const CREATE_ORDER = "create_order";
 export const ORDER = "order;";
 export const CLEAR_ORDER = "clear_order";
+export const REMOVE_QUANTITY = `remove_quantity`;

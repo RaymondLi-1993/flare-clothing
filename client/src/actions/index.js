@@ -9,7 +9,7 @@ import {
   ORDER,
   CLEAR_ORDER,
   CLEAR_SHIPPING,
-  CLEAR_TOTAL,
+  REMOVE_QUANTITY,
 } from "./types";
 
 export const fetchProducts = () => async dispatch => {
@@ -63,6 +63,30 @@ export const removeFromCart = id => (dispatch, getState) => {
 
   dispatch({
     type: REMOVE_FROM_CART,
+    payload: { cart },
+    total: total,
+    totalCount: totalCount,
+  });
+};
+
+export const removeQuantity = item => (dispatch, getState) => {
+  const cart = getState().cart.cart;
+  let total = 0;
+  let totalCount = 0;
+
+  cart.forEach(elem => {
+    if (elem.id === item.id) {
+      elem.count--;
+    }
+  });
+
+  cart.forEach(elem => {
+    total += elem.count * elem.price;
+    totalCount += elem.count;
+  });
+
+  dispatch({
+    type: REMOVE_QUANTITY,
     payload: { cart },
     total: total,
     totalCount: totalCount,

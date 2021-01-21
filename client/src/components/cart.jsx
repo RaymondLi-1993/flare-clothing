@@ -19,20 +19,20 @@ const Cart = () => {
     );
   }
   return (
-    <>
-      <div className="w-screen h-screen flex justify-center ">
-        <div className="container  mt-12 flex flex-col w-9/12 h-full">
+    <div className="w-full h-screen">
+      <div className="w-full h-full flex justify-center ">
+        <div className="container mt-12 flex flex-col w-9/12 h-full">
           {cart.map(item => {
             return <Items key={item.id} otherProps={{ ...item }} />;
           })}
           <div className="flex w-full items-center justify-end self-center">
-            <div className="mr-6 font-bold text-lg">
+            <div className="mr-6 font-bold mt-4 text-xs sm:text-sm md:text-lg">
               {total !== 0 ? `Total: $${total} USD` : null}
             </div>
-            <div>
+            <div className="flex mt-4">
               <button
                 onClick={() => History.push(`/menu`)}
-                className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded mr-2"
+                className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-1 px-2 rounded mr-2 text-xs sm:text-sm md:text-base"
               >
                 Continue Shopping
               </button>
@@ -42,7 +42,7 @@ const Cart = () => {
                     ? () => History.push(`/shipping`)
                     : () => History.push(`/login`)
                 }
-                className="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-1 px-2 rounded"
+                className="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-1 px-2 rounded text-xs sm:text-sm md:text-base"
               >
                 Proceed
               </button>
@@ -50,7 +50,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

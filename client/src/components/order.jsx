@@ -25,6 +25,7 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 const Order = () => {
+  Modal.setAppElement("#root");
   const stripe = useStripe();
   const elements = useElements();
   const dispatch = useDispatch();
@@ -33,9 +34,11 @@ const Order = () => {
   const shippingDetails = useSelector(state => state.shipping);
   const purchaseInfo = useSelector(state => state.order);
   const [state, setState] = useState(true);
+  const [disabled, setDisabled] = useState(false);
 
   const handleSubmit = async event => {
     event.preventDefault();
+    setDisabled(!disabled);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -56,13 +59,14 @@ const Order = () => {
     dispatch(clearCart());
     dispatch(clearOrder());
     dispatch(clearShipping());
+    setDisabled(!disabled);
     History.push(`/`);
   };
 
   return (
     <div>
       <div className="py-6 w-full mb-12">
-        <div className="flex bg-gray-300 overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+        <div className="flex bg-gray-300 overflow-hidden mx-auto w-10/12">
           <div className="w-full p-8 lg:w-1/2">
             <div className=" bg-gray-200 rounded-lg shadow-2xl overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
               <h1 className="text-m font-semibold text-gray-700 text-left m-6">
@@ -94,12 +98,34 @@ const Order = () => {
               >
                 Back
               </button>
-              <button
-                onClick={handleSubmit}
-                className="bg-yellow-500 text-black font-bold py-2 px-4 w-1/2 m-2 rounded hover:bg-yellow-700"
-              >
-                Submit
-              </button>
+              <div className="bg-yellow-500 text-black font-bold py-2 px-4 w-1/2 m-2 rounded hover:bg-yellow-700 text-center cursor-pointer">
+                {disabled === false ? (
+                  <button
+                    className="text-white font-bold text-none"
+                    onClick={handleSubmit}
+                    style={{ outline: `none` }}
+                  >
+                    Submit
+                  </button>
+                ) : (
+                  <div className="flex flex-row justify-center items-center w-full ">
+                    <svg
+                      className="animate-spin"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                    >
+                      <path
+                        fill="#444"
+                        d="M15 8c0 3.9-3.1 7-7 7s-7-3-7-7H0c0 4 3.6 8 8 8s8-3.6 8-8h-1z"
+                      />
+                    </svg>
+                    <span className="font-bold px-2 text-white">
+                      Processing
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
             <h1 className="mt-12 text-l text-red-600">
               *Use credit card number 4242424242424242 10/22 and any CVC/ZIP*
