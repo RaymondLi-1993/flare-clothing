@@ -2,7 +2,7 @@ import { ORDER, CLEAR_ORDER } from "../actions/types";
 
 const INITIAL_STATE = null;
 
-export default (state = INITIAL_STATE, action) => {
+export const orderReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ORDER:
       return action.payload || false;

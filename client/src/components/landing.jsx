@@ -24,6 +24,7 @@ const Landing = () => {
           {state.products.map(elem => {
             return (
               <div
+                key={elem.id}
                 className={
                   "w-1/5 text-red-500 text-center font-openSans text-lg font-thin"
                 }

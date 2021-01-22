@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   cart: [],
 };
 
-export default (state = INITIAL_STATE, action) => {
+export const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
