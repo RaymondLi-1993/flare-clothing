@@ -15,7 +15,7 @@ const Hats = () => {
   return (
     <>
       <div className="my-8 w-full">
-        <div className="container m-auto px-6">
+        <div className="w-10/12 container m-auto px-6">
           <h1 className="font-bold text-2xl border-b-8 uppercase">
             {routeName}
           </h1>

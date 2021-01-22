@@ -44,7 +44,7 @@ const Card = ({ name, price, image, id }) => {
       </div>
       <div className="w-full h-16 flex">
         <div className="w-2/3 h-full flex flex-col items-start justify-center">
-          <div className="text-white px-5 text-lg font-Nunito">{name}</div>
+          <div className="text-white px-5 text-base font-Nunito">{name}</div>
           <div className="text-white px-5 text-sm font-openSans font-thin">{`$${price}`}</div>
         </div>
         <div className="w-1/3 h-full flex flex-row items-center justify-center">

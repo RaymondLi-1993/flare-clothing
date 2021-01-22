@@ -158,16 +158,16 @@ const Order = () => {
                   </span>
                 </div>
                 <div className="ml-4">
-                  <div className="font-semibold text-xl text-green-800">
+                  <div className="text-base font-semibold md:text-xl text-green-800">
                     Success! You're order has been placed!
                   </div>
                 </div>
-                <div className="mt-8 font-bold text-2xl">
+                <div className="text-base mt-8 font-bold md:text-2xl">
                   ORDER {purchaseInfo._id}
                 </div>
               </div>
             </div>
-            <div className="w-3/12 mt-12 h-xl m-auto flex flex-col">
+            <div className="w-3/12 mt-12 h-xl m-auto flex flex-col items-center">
               <ul>
                 <li className="flex justify-between mb-4">
                   <div>Name:</div>

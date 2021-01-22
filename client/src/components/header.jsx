@@ -67,7 +67,7 @@ const Header = () => {
                   return (
                     <Link
                       to={`/category/${elem.routeName}`}
-                      className="mx-1 text-xl text-white font-openSans cursor-pointer hover:text-red-500 md:text-base lg:text-lg lg:mx-4"
+                      className="mx-1 text-xl text-white font-Nunito cursor-pointer hover:text-red-500 md:text-base lg:text-lg lg:mx-4"
                       key={elem.id}
                     >
                       {elem.title}

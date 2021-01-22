@@ -8,7 +8,7 @@ const Menu = () => {
 
   return (
     <div className="my-8 w-full">
-      <div className="container m-auto px-6">
+      <div className="w-9/12 container m-auto px-6">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
           {products.map(elem => {
             return elem.items.map(item => {

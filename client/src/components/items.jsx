@@ -54,10 +54,10 @@ const Items = ({ otherProps }) => {
           ></img>
         </div>
         <div className="w-10/12 h-full flex-grow flex flex-row justify-evenly items-center md:px-6">
-          <div className="text-xs sm:text-sm lg:text-lg w-4/12 text-center">
+          <div className="text-xs sm:text-sm lg:text-base w-4/12 text-center">
             {name}
           </div>
-          <div className="text-xs sm:text-sm lg:text-lg w-2/12 text-center">{`$${price}`}</div>
+          <div className="text-xs sm:text-sm lg:text-base w-2/12 text-center">{`$${price}`}</div>
           <div className="w-4/12 flex justify-evenly">
             <button
               disabled={count === 1}
@@ -69,7 +69,7 @@ const Items = ({ otherProps }) => {
             >
               <LeftArrow count={count} />
             </button>
-            <div className="text-xs text-center sm:text-sm lg:text-lg">{`Qty: ${count}`}</div>
+            <div className="text-xs text-center sm:text-sm lg:text-base">{`Qty: ${count}`}</div>
             <button
               id={id}
               onClick={event => {
@@ -84,7 +84,7 @@ const Items = ({ otherProps }) => {
             id={id}
             onClick={event => handleClick(event.target.id)}
             style={{ outline: `none` }}
-            className="text-xs w-2/12 shadow-none font-bold sm:text-sm lg:text-lg "
+            className="text-xs w-2/12 shadow-none font-bold sm:text-sm lg:text-base "
           >
             X
           </button>
